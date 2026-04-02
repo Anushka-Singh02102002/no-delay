@@ -47,7 +47,21 @@ function App() {
   }, [completedCount]);
 
  useEffect(() => {
-    checkStreak();
+    const today = new Date().toDateString();
+    const yesterday = new Date(Date.now() - 86400000).toDateString();
+    
+    if (lastActive === today) return;
+    else if (lastActive === yesterday) {
+      const newStreak = streak + 1;
+      setStreak(newStreak);
+      localStorage.setItem('streak', newStreak);
+    } else {
+      setStreak(1);
+      localStorage.setItem('streak', 1);
+    }
+    setLastActive(today);
+    localStorage.setItem('lastActive', today);
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
 
   useEffect(() => {
