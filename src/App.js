@@ -46,9 +46,9 @@ function App() {
     localStorage.setItem('completedCount', completedCount);
   }, [completedCount]);
 
-  useEffect(() => {
+ useEffect(() => {
     checkStreak();
-  }, []);
+}, []);
 
   useEffect(() => {
     if (!activeTask) return;
