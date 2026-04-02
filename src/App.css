@@ -1,38 +1,349 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0f0f0f;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ── HEADER ── */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 42px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+.header p {
+  color: #888;
+  font-size: 16px;
+  margin-top: 6px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ── MOTIVATION MESSAGE ── */
+.motivation {
+  text-align: center;
+  padding: 16px 24px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  font-size: 15px;
+  font-weight: 600;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+}
+
+/* ── INPUT SECTION ── */
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.input-section input {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 2px solid #2a2a2a;
+  background: #1a1a1a;
+  color: #ffffff;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.input-section input:focus {
+  border-color: #7c3aed;
+}
+
+.input-section input::placeholder {
+  color: #555;
+}
+
+.btn-add {
+  padding: 14px 22px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-add:hover {
+  opacity: 0.85;
+}
+
+/* ── STATS ── */
+.stats {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.stat-box {
+  flex: 1;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 16px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.stat-box .number {
+  font-size: 28px;
+  font-weight: 800;
+  color: #7c3aed;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.stat-box .label {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ── TASK LIST ── */
+.task-list {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 18px 20px;
+  transition: border 0.2s;
+}
+
+.task-item:hover {
+  border-color: #7c3aed;
+}
+
+.task-name {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.btn-start {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-start:hover {
+  opacity: 0.85;
+}
+
+/* ── RESET BUTTON ── */
+.btn-reset {
+  background: transparent;
+  border: 1px solid #333;
+  color: #666;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.btn-reset:hover {
+  border-color: red;
+  color: red;
+}
+
+/* ── FOCUS MODE ── */
+.focus-mode {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.focus-mode h1 {
+  font-size: 22px;
+  color: #888;
+  margin-bottom: 16px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.focus-task {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 48px;
+  color: #ffffff;
+}
+
+.timer {
+  font-size: 96px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 48px;
+  letter-spacing: -4px;
+}
+
+.btn-stop {
+  padding: 14px 32px;
+  background: transparent;
+  border: 2px solid #7c3aed;
+  color: #7c3aed;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-stop:hover {
+  background: #7c3aed;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* ── DELAY SCREEN ── */
+.delay-screen {
+  text-align: center;
+  padding: 40px 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.delay-screen h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.delay-screen .task-name {
+  color: #a855f7;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.delay-screen .subtitle {
+  color: #888;
+  margin-bottom: 32px;
+}
+
+.btn-continue {
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 40px;
+  width: 100%;
+  transition: opacity 0.2s;
+}
+
+.btn-continue:hover {
+  opacity: 0.85;
+}
+
+.delay-reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.reason-item {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+
+.reason-item:hover {
+  border-color: #7c3aed;
+}
+
+.reason-btn {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
+.reason-msg {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  border: none;
+  border-top: 1px solid #2a2a2a;
+  margin: 24px 0;
+}
+.btn-done {
+  padding: 10px 14px;
+  background: #065f46;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-done:hover {
+  opacity: 0.85;
+}
+
+.btn-delete {
+  padding: 10px 14px;
+  background: #7f1d1d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-delete:hover {
+  opacity: 0.85;
 }
