@@ -32,4 +32,4 @@ This project was built with guidance from Claude AI (Anthropic) for:
 - CSS styling
 
 ## Live Demo
-[Coming Soon - Vercel Deploy]
+no-delay.vercel.app
