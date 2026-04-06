@@ -46,12 +46,13 @@ function App() {
     localStorage.setItem('completedCount', completedCount);
   }, [completedCount]);
 
- useEffect(() => {
+  useEffect(() => {
     const today = new Date().toDateString();
-    const yesterday = new Date(Date.now() - 86400000).toDateString();
-    
+    const yesterday = new Date(
+      Date.now() - 86400000
+    ).toDateString();
     if (lastActive === today) return;
-    else if (lastActive === yesterday) {
+    if (lastActive === yesterday) {
       const newStreak = streak + 1;
       setStreak(newStreak);
       localStorage.setItem('streak', newStreak);
@@ -61,8 +62,7 @@ function App() {
     }
     setLastActive(today);
     localStorage.setItem('lastActive', today);
-// eslint-disable-next-line react-hooks/exhaustive-deps
-}, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!activeTask) return;
@@ -72,24 +72,6 @@ function App() {
     }, 1000);
     return () => clearInterval(timer);
   }, [activeTask, timeLeft]);
-
-  function checkStreak() {
-    const today = new Date().toDateString();
-    const yesterday = new Date(
-      Date.now() - 86400000
-    ).toDateString();
-    if (lastActive === today) return;
-    else if (lastActive === yesterday) {
-      const newStreak = streak + 1;
-      setStreak(newStreak);
-      localStorage.setItem('streak', newStreak);
-    } else {
-      setStreak(1);
-      localStorage.setItem('streak', 1);
-    }
-    setLastActive(today);
-    localStorage.setItem('lastActive', today);
-  }
 
   function addTask() {
     if (task === '') return;
