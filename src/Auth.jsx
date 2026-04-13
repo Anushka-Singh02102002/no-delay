@@ -29,26 +29,32 @@ function Auth() {
     }
 
     setError("");
-
-    if (isLogin) {
-      console.log("Login:", form);
-    } else {
-      console.log("Register:", form);
-    }
+    
+    // ✅ Save user to localStorage
+    localStorage.setItem("user", JSON.stringify({ 
+      name: form.name || "User", 
+      email: form.email 
+    }));
+    
+    // ✅ Reload page to show MainPage
+    window.location.reload();
   };
 
   return (
     <div style={styles.container}>
       <form style={styles.form} onSubmit={handleSubmit}>
-        <h3>{isLogin ? "Login" : "Register"}</h3>
+        <h2>{isLogin ? "Login" : "Register"}</h2>
+
+        {error && <p style={styles.error}>{error}</p>}
 
         {!isLogin && (
           <input
             type="text"
             name="name"
             placeholder="Name"
-            style={styles.input}
+            value={form.name}
             onChange={handleChange}
+            style={styles.input}
           />
         )}
 
@@ -56,19 +62,19 @@ function Auth() {
           type="email"
           name="email"
           placeholder="Email"
-          style={styles.input}
+          value={form.email}
           onChange={handleChange}
+          style={styles.input}
         />
 
         <input
           type="password"
           name="password"
           placeholder="Password"
-          style={styles.input}
+          value={form.password}
           onChange={handleChange}
+          style={styles.input}
         />
-
-        {error && <p style={styles.error}>{error}</p>}
 
         <button type="submit" style={styles.button}>
           {isLogin ? "Login" : "Register"}
@@ -107,7 +113,7 @@ const styles = {
   button: {
     width: "100%",
     padding: "8px",
-    background: "#dddddd",
+    background: "#4ddddd",
     border: "1px solid #aaa",
     cursor: "pointer",
   },
